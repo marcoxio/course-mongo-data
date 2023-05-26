@@ -7,16 +7,22 @@ db.createCollection('users', {
             required: ['email', 'password'],
             properties: {
                 name: {
-                    bsonType: 'string'
+                    bsonType: 'string',
+                    description: "'name' must be a string and is required"
                 },
                 last_name: {
-                    bsonType: 'string'
+                    bsonType: 'string',
+                    description: "'lastname' must be a string and is required"
                 },
                 email: {
-                    bsonType: 'string'
-                },
+                    bsonType: 'string',
+                    description: "'email' must be a string and is required",
+                    pattern: "^[A-Za-z\d.-]{1,}@[A-Za-z\d.-]{1,}[.]{1}[A-Za-z\d.-]{1,}$"
+                    },
                 password: {
-                    bsonType: 'string'
+                    bsonType: 'string',
+                    description: "'password' must be a string and is required",
+                    pattern: "^.{16,40}$"
                 },
             }
         }
